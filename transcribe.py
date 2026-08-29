@@ -38,6 +38,14 @@ def download_video(url, output_dir):
             "youtube": {"player_client": ["android", "web"]}
         },
     }
+
+    cookies_content = os.environ.get("YTDLP_COOKIES_TXT")
+    if cookies_content:
+        cookies_path = os.path.join(output_dir, "cookies.txt")
+        with open(cookies_path, "w", encoding="utf-8") as f:
+            f.write(cookies_content)
+        ydl_opts["cookiefile"] = cookies_path
+
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         info = ydl.extract_info(url, download=True)
     return video_path, info.get("title", "video")
