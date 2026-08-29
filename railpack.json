@@ -1,5 +1,19 @@
 {
   "$schema": "https://schema.railpack.com",
+  "packages": {
+    "python": "3.11"
+  },
+  "buildAptPackages": [
+    "...",
+    "pkg-config",
+    "libavformat-dev",
+    "libavcodec-dev",
+    "libavdevice-dev",
+    "libavutil-dev",
+    "libavfilter-dev",
+    "libswscale-dev",
+    "libswresample-dev"
+  ],
   "deploy": {
     "aptPackages": ["...", "ffmpeg"],
     "startCommand": "python bot.py"
