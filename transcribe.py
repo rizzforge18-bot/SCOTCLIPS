@@ -30,12 +30,12 @@ def download_video(url, output_dir):
     video_path = os.path.join(output_dir, "video.mp4")
     ydl_opts = {
         "outtmpl": video_path,
-        "format": "mp4/bestvideo+bestaudio",
+        "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
         "merge_output_format": "mp4",
         "quiet": True,
         "no_warnings": True,
         "extractor_args": {
-            "youtube": {"player_client": ["android", "web"]}
+            "youtube": {"player_client": ["web", "android"]}
         },
     }
 
