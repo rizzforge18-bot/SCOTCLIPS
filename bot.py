@@ -158,7 +158,7 @@ async def process_link(update: Update, context: ContextTypes.DEFAULT_TYPE, url: 
 
         for r in sorted(results, key=lambda x: x.get("virality_score") or 0, reverse=True):
             caption = (
-                f"🔥 *{r.get('title', 'Clip')}*\n"
+                f"🔥 *{r.get('title', 'Clip')}* ({r.get('format', '')})\n"
                 f"Viralité : *{r.get('virality_score')}/10*\n"
                 f"{r.get('reason', '')}"
             )
